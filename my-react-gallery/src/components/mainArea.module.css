@@ -1,0 +1,10 @@
+.main {
+  top: 48.82px;
+  height: calc(100vh - 48.82px);
+  overflow-y: auto;
+  background-color: #decece; 
+  padding: 20px;
+  color: #000; 
+  grid-area: main;
+}
+
