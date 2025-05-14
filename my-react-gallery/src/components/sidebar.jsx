@@ -4,6 +4,8 @@ import styles from "./sidebar.module.css";
 
 export default function Sidebar({ onSelect, isSidebarOpen }) {
   const [openKeys, setOpenKeys] = useState([]);
+  const [isAllOpen, setIsAllOpen] = useState(false); // State to track "Open All" or "Close All"
+
 
   const toggleOpen = (key) => {
     setOpenKeys((prev) =>
@@ -15,8 +17,27 @@ export default function Sidebar({ onSelect, isSidebarOpen }) {
     onSelect(key);
   };
 
+
+  // Open all items
+  const handleOpenAll = () => {
+    setOpenKeys(sidebarItems.map((item) => item.key));
+    setIsAllOpen(true); // Set state to "Open All"
+  };
+
+  // Close all items
+  const handleCloseAll = () => {
+    setOpenKeys([]);
+    setIsAllOpen(false); // Set state to "Close All"
+  };
+
   return (
     <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : styles.closed}`}>
+
+      <div className={styles.controlButtons}>
+        <button onClick={handleOpenAll}>Open All</button>
+        <button onClick={handleCloseAll}>Close All</button>
+      </div>
+
       {sidebarItems.map((item) => (
         <div key={item.key}>
           <div
