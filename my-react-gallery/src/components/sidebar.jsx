@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sidebarItems } from "../data/SideBarItem.jsx";
+import { sidebarItems } from "../data/sidebar-data.jsx";
 import styles from "./sidebar.module.css";
 
 export default function Sidebar({ onSelect, isSidebarOpen }) {
